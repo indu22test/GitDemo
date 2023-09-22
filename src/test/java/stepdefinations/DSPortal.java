@@ -1,53 +1,54 @@
 package stepdefinations;
 
-import java.util.concurrent.TimeUnit;
-
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.messages.types.Duration;
 
 public class DSPortal {
-	public WebDriver driver;
-	String URL =""
 
-	@Given("User opens the URL")
-	public void user_opens_the_url() {
-		driver.get("https://dsportalapp.herokuapp.com/"); 
-		driver.manage().window().maximize();
-		
-	}
 
-	@Then("User land on the page")
-	public void user_land_on_the_page() {
-					
-	    
-	}
+public WebDriver driver;
+String URL = "https://dsportalapp.herokuapp.com/";
 
-	@When("user clicks to Get Started")
-	public void user_clicks_to_Get_Started() {
-	    driver.findElement(By.xpath("//button[text()='Get Started']")).click();
-	    
-	}
+By getstarted = By.xpath("//button[text()='Get Started']");
 
-	@Then("user navigate to homepage")
-	public void user_navigate_to_homepage() {
-	    
-	    
-	}
 
-	@Then("user land on DSPortal page")
-	public void user_land_on_ds_portal_page() {
 
-	
-	}
-	
+@Given("user open the application of DSPortalapp <https:\\/\\/dsportalapp.herokuapp.com\\/>")
+public void user_open_the_application_of_ds_portalapp_https_dsportalapp_herokuapp_com() {
+   
+   System.getProperty("C:\\Users\\sheet\\eclipse-workspace\\Selenium_Project_01\\src\\test\\resources\\drivers");
+   driver = new ChromeDriver();
+   driver.get(URL);
+  
+
+}
+
+
+@Then("User land on DSPortal page")
+public void user_land_on_ds_portal_page() {
+    
+}
+
+
+@When("user click to get to get started button")
+public void user_click_to_get_to_get_started_button() {
+   
+driver.findElement(getstarted).click();
+   
+   
+}
+
+@Then("user navigate to homepage")
+public void user_navigate_to_homepage() {
+   
+   
+}
+
+
 }
